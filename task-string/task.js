@@ -30,3 +30,14 @@ console.log(string1);
 //tolowercase
 const str=" A STRING IS LOWERCASE";
 console.log(str.toLowerCase());
+//concat()
+const hello = "Hello, ";
+console.log(hello.concat("Kevin", ". Have a nice day."));
+// Hello, Kevin. Have a nice day.
+
+const greetList = ["Hello", " ", "Venkat", "!"];
+console.log("".concat(...greetList)); // "Hello Venkat!"
+
+
+
+
