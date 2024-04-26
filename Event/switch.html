@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h2>JavaScript switch</h2>
+
+<p id="demo"></p>
+<script>
+    // let day;
+    // switch (new Date().getDay()) {
+    //   case 0:
+    //     day = "Sunday";
+    //     break;
+    //   case 1:
+    //     day = "Monday";
+    //     break;
+    //   case 2:
+    //     day = "Tuesday";
+    //     break;
+    //   case 3:
+    //     day = "Wednesday";
+    //     break;
+    //   case 4:
+    //     day = "Thursday";
+    //     break;
+    //   case 5:
+    //     day = "Friday";
+    //     break;
+    //   case  6:
+    //     day = "Saturday";
+    // }
+    //example
+//     switch (new Date().getDay()) {
+//   case 6:
+//     text = "Today is Saturday";
+//     break;
+//   case 0:
+//     text = "Today is Sunday";
+//     break;
+//   default:
+//     text = "Looking forward to the Weekend";
+// }
+switch (new Date().getDay()) {
+  case 4:
+  case 5:
+    text = "Soon it is Weekend";
+    break;
+  case 2:
+  case 6:
+    text = "It is Weekend";
+break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+    document.getElementById("demo").innerHTML=text;
+    //example
+    const expr = 'Mangoes';
+switch (expr) {
+  case 'Oranges':
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    // Expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
+}
+//example
+const foo = 0;
+switch (foo) {
+  case -1:
+    console.log("negative 1");
+    break;
+  case 0: // Value of foo matches this criteria; execution starts from here
+    console.log(0);
+  // Forgotten break! Execution falls through
+  case 1: // no break statement in 'case 0:' so this case will run as well
+    console.log(1);
+    break; // Break encountered; will not continue into 'case 2:'
+  case 2:
+    console.log(2);
+    break;
+  default:
+    console.log("default");
+}
+//example
+const fo = 1;
+let output = "Output: ";
+switch (fo) {
+  case 0:
+    output += "So ";
+  case 1:
+    output += "What ";
+    output += "Is ";
+  case 2:
+    output += "Your ";
+  case 3:
+    output += "Name";
+  case 4:
+    output += "?";
+    console.log(output);
+    break;
+  case 5:
+    output += "!";
+    console.log(output);
+    break;
+  default:
+    console.log("Please pick a number from 0 to 5!");
+}
+    </script>
+</body>
+</html>

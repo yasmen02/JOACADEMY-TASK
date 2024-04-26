@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script>
+        function validateForm() {
+          let x = document.forms["myForm"]["fname"].value;
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+        }
+        </script> -->
+  </head>
+  <body>
+    <!-- HTML objects -->
+    <!-- document.anchors
+document.body
+document.documentElement
+document.embeds
+document.forms
+document.head
+document.images
+document.links
+document.scripts
+document.title -->
+<h2>JavaScript Validation</h2>
+
+<p>Please input a number between 1 and 10:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+<script>
+  function  myFunction (){
+    let x= document.getElementById("numb").value;
+    let text ;
+    if (isNaN(x)||x<1||x>10){
+    text=document.getElementById("demo").innerHTML="numb not valid";}
+else{
+text=document.getElementById("demo").innerHTML="numb  valid";}
+
+  }
+</script>
+<!-- example -->
+
+    
+<!-- <h2>JavaScript Validation</h2>
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form> -->
+
+
+    <!-- example -->
+    <!-- <h2>JavaScript HTML DOM</h2>
+    <p>Finding HTML Elements Using <b>document.forms</b>.</p>
+    
+    <form id="frm1" action="/action_page.php">
+      First name: <input type="text" name="fname" value="Donald"><br>
+      Last name: <input type="text" name="lname" value="Duck"><br><br>
+      <input type="submit" value="Submit">
+    </form> 
+    
+    <p>These are the values of each element in the form:</p>
+    
+    <p id="demo"></p>
+    
+    <script>
+    const x = document.forms["frm1"];
+    let text = "";
+    for (let i = 0; i < x.length ;i++) {
+      text += x.elements[i].value + "<br>";
+    }
+    document.getElementById("demo").innerHTML = text;
+    </script> -->
+    <!-- //example -->
+    <!-- <p id="demo"></p>
+    <p id="demoo"></p>
+
+<p id="dem">get every element in the array that has a value of 18 or more:</p>
+<script>
+    document.getElementById("demo").innerHTML="hello word";
+    document.getElementById("demoo").innerHTML();
+    
+</script> -->
+
+    <!-- //example -->
+    <!-- <script>
+// let text = ""
+// let i = 0;
+
+// do {
+//   text += "<br>The number is " + i;
+//   i++;
+// }
+// while (i < 10);  
+
+// document.getElementById("demo").innerHTML = text;
+// const cars = ["BMW", "Volvo", "Saab", "Ford"];
+// let i = 0;
+// let text = "";
+
+// for (;cars[i];) {
+//   text += cars[i]+"<br>";
+//   i++;
+// }
+// document.getElementById("demo").innerHTML = text;
+// while(cars[i]){
+//     text += cars[i]+"<br>";
+//   i++;
+// }
+// document.getElementById("demo").innerHTML = text;
+//foreach "doesn't return anything"
+let text = "";
+const fruits = ["apple", "orange", "cherry"];
+fruits.forEach(myFunction);
+
+document.getElementById("demo").innerHTML = text;
+ 
+function myFunction(item, index) {
+  text += index + ": " + item + "<br>"; 
+}
+//map() "return new array"
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction);
+document.getElementById("demoo").innerHTML = newArr;
+
+function myFunction(num) {
+  return num * 10;
+}
+// filter() "return new array based on condtion"
+const ages = [32, 33, 16, 40];
+
+document.getElementById("dem").innerHTML = ages.filter(checkAdult);
+
+function checkAdult(age) {
+  return age >= 18;
+}
+</script> -->
+  </body>
+</html>
