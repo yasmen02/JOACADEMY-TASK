@@ -1,0 +1,30 @@
+/* Exercise (1) */
+
+#demo{
+    width: 200px;
+    height: 50px;
+    background-color: yellow;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+/* Exercise (2) */
+
+.box{
+    height: 200px;
+    width: 200px;
+    /* background: blue; */
+}
+div{
+    color: rgb(65, 65, 153);
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+/* Exercise (5) */
+
+
+

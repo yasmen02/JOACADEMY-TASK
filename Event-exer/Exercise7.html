@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayLIst</title>
+</head>
+<body>
+    <input type="text" id="songInput" placeholder="Enter a song">
+    <button id="addButton">Add Song</button>
+    <div id="playlist"></div>
+    <p id="errorMessage" style="color: red; display: none;"></p>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the add button, input field, playlist, and error message
+        let addButton = document.getElementById("addButton");
+        let songInput = document.getElementById("songInput");
+        let playlist = document.getElementById("playlist");
+        let errorMessage = document.getElementById("errorMessage");
+      
+        addButton.addEventListener("click", function () {
+          addSong(songInput.value.trim());
+        });
+        // Function to add a song to the playlist
+        function addSong(song) {
+          // Check if the input field is empty
+          if (song === "") {
+            errorMessage.textContent = "Please enter a song!";
+            errorMessage.style.display = "block";
+            return;
+          }
+          errorMessage.style.display = "none"; // Clear any previous error message
+      
+          let songDiv = document.createElement("div"); // Create a new div element for the song
+      
+          songDiv.textContent = song; // Set the text content of the div to the song
+      
+          songDiv.classList.add("song"); // Add class "song" to the song div
+      
+          let deleteLink = document.createElement("span"); // Create a delete link for the song
+          deleteLink.textContent = "❌"; // You can use any delete icon or text you prefer
+          deleteLink.classList.add("delete");
+      
+          // Add click event listener to delete the song
+          deleteLink.addEventListener("click", function () {
+            songDiv.remove();
+            checkPlaylist();
+          });
+          songDiv.appendChild(deleteLink);
+          playlist.appendChild(songDiv);
+          songInput.value = "";
+          playlist.style.display = "block";
+        }
+      
+        function checkPlaylist() {
+          if (playlist.childElementCount === 0) {
+            playlist.style.display = "none";
+          }
+        }
+        checkPlaylist();
+      });
+    </script>
+</body>
+</html>
