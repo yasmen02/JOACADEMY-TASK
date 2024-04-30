@@ -9,7 +9,7 @@
     .box{
     height: 200px;
     width: 200px;
-
+    cursor: pointer;
     background: blue;
 }
 div{
@@ -41,7 +41,7 @@ let currentColorIndex = randomIndex;
 
 div2.addEventListener('click', function() {
     currentColorIndex = (currentColorIndex + 1) % color.length;
-   div2.style.backgroundColor = color[currentColorIndex];
+    div2.style.backgroundColor = color[currentColorIndex];
 });
     </script>
 </body>

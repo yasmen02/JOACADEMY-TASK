@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>Exercise (3)</div>
     <select name="" id="select">
       <option value="" selected>Select</option>
@@ -17,19 +17,22 @@
     </div>
     <br />
     <script>
-        let selectElement = document.getElementById("select");
-        let imageElement = document.getElementById("img");
-        selectElement.addEventListener("change", function() {
-            let selectedOption = selectElement.options[selectElement.selectedIndex];
-            if (selectedOption.value !== "") {
-                imageElement.src = selectedOption.value;
-                imageElement.alt = selectedOption.text;
-                imageElement.style.display = "flex";
-            } else {
-                imageElement.style.display = "none";
-            }
-        });
-        
+        'use strict';
+      let selectElement = document.getElementById("select");
+      let imageElement = document.getElementById("img");
+      selectElement.addEventListener("change", function() {
+          let selectedOption = selectElement.options[selectElement.selectedIndex];
+          if (selectedOption.value !== "") {
+              imageElement.src = selectedOption.value;
+              imageElement.alt = selectedOption.text;
+              imageElement.style.display = "flex";
+          } else {
+              imageElement.style.display = "none";
+          }
+      });
+    //   selectElement.addEventListener("change", (e) => {
+    //     image.src = e.target.value;
+    //   });
     </script>
-</body>
+  </body>
 </html>
