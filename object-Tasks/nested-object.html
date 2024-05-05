@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested obj</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo0"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="full"></p>
+    <p id="lang"></p>
+
+
+
+
+
+
+
+
+   <script>
+    let user ={
+        name:"yasmen",
+        age:22,
+        skills:["html","css","js"],
+        available:false,
+        addresses:{
+            ksa:"riyadh",
+            jordan:{
+                one: "amman",
+                two: "zarqa",
+            },
+        },
+        checkAv: function () {
+            if (user.available === true){
+                return `free for work`;
+            }else{
+                return ` not free for work`;
+
+            }
+        },
+    };
+    console.log(user.name);
+    console.log(user.age);
+    console.log(user.skills);
+    console.log(user.skills.join(" | "));
+    console.log(user.skills[1]);
+    console.log(user.addresses.jordan.one);
+    console.log(user["addresses"]["jordan"]["two"]);
+    console.log(user.checkAv());
+
+ 
+    //Properties==>
+    // user2.age;
+    // user2["age"];
+    // x="age";person[x];
+
+
+    //this==>
+    const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName: function() {//adding method to an obj
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+document.getElementById("demo").innerHTML = person.fullName();
+
+//using Built-in Methods
+let message = "Hello world!";
+let x = message.toUpperCase();
+console.log(x);
+
+
+
+//Methods(Assign,Entries,keys.values,valueOf, toSrting)
+const person1 = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue",
+  language: "NO",
+  set lang(value) {//<--seter-->
+    this.language = value;
+  },
+  get fullName() {//<--geter-->
+    return this.firstName + " " + this.lastName;}// Display data from the object using a getter:
+};
+person1.lang="en";
+document.getElementById("lang").innerHTML = person1.language;
+document.getElementById("full").innerHTML = person1.fullName;
+
+
+const person2 = {firstName: "Anne",lastName: "Smith"};
+
+Object.assign(person1, person2);// Assign Source to Target
+
+let text = Object.entries(person1);// entries()==>return on array(keys,values)
+document.getElementById("demo0").innerHTML = text;
+
+const keys =Object.keys(person);//keys()==>return keys on Array
+console.log(keys);
+
+const value = Object.values(person2);//values()==>returns an array of the values of an object.
+console.log(value);
+
+const val = Object.valueOf(person2);//valueOf() returns the object itself:
+console.log(val);
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];// 1- toString on array
+const myArray = fruits.toString();
+
+document.getElementById("demo").innerHTML = myArray;
+
+//<--toString() on an object:-->
+const key = person.toString();//result=[object object]
+const key1 = Object.toString(person);// result=function Object() { [native code] }
+
+document.getElementById("demo2").innerHTML = key; 
+
+
+
+//<--Stringifying Object + Manipulating Properties(adding/deleting )-->
+let user2 = {};
+    console.log(user2);
+    user2.age =22;//<--adding new Properties-->
+    user2.sayHello =function(){
+        return `hello`;
+    };
+    delete user2.age;//<--deleting Properties-->
+
+
+
+    //<--stringify-->
+    const obj = {name: "John", age: 30, city: "New York"};
+const myJSON = JSON.stringify(obj);
+document.getElementById("demo3").innerHTML = myJSON;
+
+const obj2 = {name: "John", age: function () {return 30;}, city: "New York"};
+// output==>{"name":"John","city":"New York"}
+const myJSON2 = JSON.stringify(obj);//JSON.stringify() will remove any functions from an object.
+  
+// const obj = {name: "John", age: function () {return 30;}, city: "New York"};
+// obj.age = obj.age.toString(); //Convert functions into strings to keep them in the JSON object.
+// const myJSON = JSON.stringify(obj);
+  
+
+
+
+//for (let ...in) //To access arrays inside arrays, use a for-in loop for each array
+let y = "";
+const myObj1 = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", models:["320", "X3", "X5"]},
+    {name:"Fiat", models:["500", "Panda"]}
+  ]
+}
+
+for (let i in myObj1.cars) {
+  y += "<h2>" + myObj1.cars[i].name + "</h2>";
+  for (let j in myObj1.cars[i].models) {
+    y += myObj1.cars[i].models[j] + "<br>";
+  }
+}
+
+document.getElementById('demo4').innerHTML=y;
+  
+
+//classes
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+
+  }
+  age() {
+    const date = new Date();
+    return date.getFullYear() - this.year;
+  }
+};
+const myCar = new Car("Ford", 2014);
+document.getElementById("demo5").innerHTML =
+"My car is " + myCar.age() + " years old.";
+  </script> 
+</body>
+</html>
