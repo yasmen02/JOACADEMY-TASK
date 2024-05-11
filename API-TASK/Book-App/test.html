@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //   fetch("https://www.googleapis.com/books/v1/volumes?q=")
+    //     .then(function (response) {
+    //       return response.json();
+    //     })
+    //     .then(function (data) {
+    //       console.log(data);
+    //     });
+
+
+    // async function get(){
+    //     const response=  await    fetch('https://restcountries.com/v3.1/all')
+    // const data =await response.json()
+    // console.log(data);
+    //  document.querySelector("#content").innerHTML="<h1>"+data.name+"</h1>";
+    // }
+    // get();
+
+    var item, title, author, publisher, bookLink, bookImg;
+  var outputList = document.getElementById("list-output");
+  var bookUrl = "https://www.googleapis.com/books/v1/volumes?q=";
+  var placeHldr = '<img src="https://via.placeholder.com/150">';
+  var searchData;
+  
+    async function get(){
+      const response= await fetch(bookUrl + searchData)
+      const data= await response.json()
+      console.log(data);
+    }
+    </script>
+  </body>
+</html>
