@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callBack Hell</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        function makeItred(e){
+            e.target.style.co.lor="red";
+        }
+        let p =document.querySelector('#demo');
+        p.addEventListener('click',makeItred);
+
+        function iamCallback(){
+            console.log("i am a callback function");
+        }
+        setTimeout(iamCallback, 1000);
+        setTimeout(() => {
+            console.log("download photo from URL");;
+            setTimeout(() => {
+                console.log("resize photo");
+                setTimeout(() => {
+                    console.log("add logo to the photo");
+                    setTimeout(() => {
+                        console.log("show the photo in website");
+                    }, 4000);
+                }, 3000);
+            }, 2000);
+        }, 1000);
+    </script>
+</body>
+</html>

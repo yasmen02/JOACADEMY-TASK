@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myFirstPromise = new Promise((res,rej)=> {
+          setTimeout(() => {
+            res("iam the first  promise")
+          }, 5000);  
+        });
+        const mySecondPromise = new Promise((res,rej)=> {
+          setTimeout(() => {
+            res("iam the second  promise")
+          }, 1000);  
+        });  const myThirdPromise = new Promise((res,rej)=> {
+          setTimeout(() => {
+            rej("iam the third promise")
+          }, 2000);  
+        });
+        Promise.allSettled([myFirstPromise, mySecondPromise, myThirdPromise]).then(
+            (resolvedValues) => console.log(resolvedValues),
+            (rejectedValue) => console.log(`Rejected:${rejectedValue}`)
+        )
+// promise.all()=>array of promises reject not resolve
+//promise.allsettled =>reject and resolve
+//promise.race()=> first reject or resolve
+    </script>
+</body>
+</html>
