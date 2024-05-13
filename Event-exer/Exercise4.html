@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Exercise (4)</div>
+
+    <div class="text-editor">
+      <input type="checkbox" id="bold-checkbox" />
+      <label for="bold-checkbox">Bold</label>
+      <input type="checkbox" id="underline-checkbox" />
+      <label for="underline-checkbox">Underline</label>
+      <input type="checkbox" id="italic-checkbox" />
+      <label for="italic-checkbox">Italic</label>
+    </div>
+    <div class="text-editor">
+      <select id="font-size-select">
+        <option value="15px">15</option>
+        <option value="25px">25</option>
+        <option value="35px">35</option>
+        <option value="45px">45</option>
+      </select>
+      <select id="font-family-select">
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Courier New">Courier New</option>
+      </select>
+    </div>
+    <div class="text-editor">
+      <div id="text-box"  contenteditable="true">What-You-See-What-You-Get.</div>
+    </div>
+    <script>
+          let boldCheckbox = document.getElementById('bold-checkbox');
+    let underlineCheckbox = document.getElementById('underline-checkbox');
+    let italicCheckbox = document.getElementById('italic-checkbox');
+    let fontSizeSelect = document.getElementById('font-size-select');
+    let fontFamilySelect = document.getElementById('font-family-select');
+    let textBox = document.getElementById('text-box');
+
+    boldCheckbox.addEventListener('change', updateText);
+    underlineCheckbox.addEventListener('change', updateText);
+    italicCheckbox.addEventListener('change', updateText);
+    fontSizeSelect.addEventListener('change', updateText);
+    fontFamilySelect.addEventListener('change', updateText);
+
+    function updateText() {
+        let styles = '';
+        //if (boldCheckbox.checked) styles += 'font-weight: bold;';
+        if (boldCheckbox.checked) styles += 'font-weight: bold;';
+        if (underlineCheckbox.checked) styles += 'text-decoration: underline;';
+        if (italicCheckbox.checked) styles += 'font-style: italic;';
+        let fontSize = fontSizeSelect.value;
+        let fontFamily = fontFamilySelect.value;
+        textBox.style.cssText = `${styles} font-size: ${fontSize}; font-family: ${fontFamily}`;
+    }
+// Exercise (5)
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    .box{
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    background: blue;
+}
+div{
+    color: rgb(65, 65, 153);
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+</style>
+<body>
+    <div id="box" class="box"></div>
+    <script>
+        // Exercise (2)(A)
+
+var color=["blue","red","green"]
+var div2=document.getElementById("box");
+div2.style.background="blue";
+ let index=0;
+ div2.addEventListener("click",function(){
+    div2.style.background=color[index];
+    index = (index + 1) % color.length;
+
+ });
+ 
+// Exercise (2)(B)
+const randomIndex = Math.floor(Math.random() * color.length);
+div2.style.backgroundColor = color[randomIndex];
+let currentColorIndex = randomIndex;
+
+div2.addEventListener('click', function() {
+    currentColorIndex = (currentColorIndex + 1) % color.length;
+    div2.style.backgroundColor = color[currentColorIndex];
+});
+    </script>
+</body>
+</html>
