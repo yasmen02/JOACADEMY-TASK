@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- example1 -->
+    <p id="myParagraph">This is an example paragraph</p>
+    <button id="changeText">Change Text</button>
+    <br />
+    <br />
+    <!-- example2 -->
+    <button onclick="handleClick()">Click Me!</button>
+    <br>
+    <!-- example3 -->
+    <button id="myBtn">Click!</button>
+    <!-- <button onclick="">change text</button> -->
+    <script>
+      // example1
+      const button = document.getElementById("changeText");
+
+      function newText(event) {
+        const p = document.getElementById("myParagraph");
+        p.innerText = "The text has been changed";
+      }
+
+      button.addEventListener("click", newText);
+      //   button.removeEventListener('click', newText);
+    //   example2
+      function handleClick(event) {
+        alert("The button is clicked!");
+      }
+ 
+    //   example3
+    const myBtn = document.querySelector('#myBtn');
+    myBtn.onclick = handleClick;
+
+    function handleClick(event) {
+      alert('The button is clicked!');
+    }
+    </script>
+  </body>
+</html>

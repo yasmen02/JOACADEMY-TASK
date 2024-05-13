@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // numeric string used with - , / , * results number type
+
+let result;
+
+result = '4' - '2'; 
+console.log(result); // 2
+
+result = '4' - 2;
+console.log(result); // 2
+
+result = '4' * 2;
+console.log(result); // 8
+
+result = '4' / 2;
+console.log(result); // 2
+// non-numeric string used with - , / , * results to NaN
+
+let r;
+
+r = 'hello' - 'world';
+console.log(r); // NaN
+
+r = '4' - 'hello';
+console.log(r); // NaN
+r='5' +'hello'
+console.log(r); // NaN
+
+// if boolean is used, true is 1, false is 0
+
+let bool;
+
+bool = '4' - true;
+console.log(bool); // 3
+
+bool = 4 + true;
+console.log(bool); // 5
+
+bool= 4 + false;
+console.log(bool); // 4
+// null is 0 when used with number
+// let result;
+
+// result = 4 + null;
+// console.log(result);  // 4
+
+// result = 4 - null;
+// console.log(result);  // 4
+
+// Arithmetic operation of undefined with number, boolean or null gives NaN
+
+// let result;
+
+// result = 4 + undefined;
+// console.log(result);  // NaN
+
+// result = 4 - undefined;
+// console.log(result);  // NaN
+
+// result = true + undefined;
+// console.log(result);  // NaN
+
+// result = null + undefined;
+// console.log(result);  // NaN
+    </script>
+</body>
+</html>
