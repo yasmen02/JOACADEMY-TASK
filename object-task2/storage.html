@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Person Name is:</p>
+    <p id="demo"></p>
+    <p id="demo0"></p>
+
+
+    <script>
+                   //<--session storage-->
+      sessionStorage.setItem("lastname", "Smith");
+      let personName = sessionStorage.getItem("lastname");
+      document.getElementById("demo").innerHTML = personName;
+      //The data is deleted when the browser window is closed
+    
+                     //<--local storage-->
+    // Set Item
+localStorage.setItem("lastname", "Smith");
+// Retrieve
+document.getElementById("demo0").innerHTML = localStorage.getItem("lastname");
+    //The data is not deleted when the browser is closed, and are available for future sessions.
+
+                    //<--cookie-->   //TEXTFILE
+// document.cookie = "favColor=red";
+
+    </script>
+  </body>
+</html>

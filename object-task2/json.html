@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON</title>
+  </head>
+  <body>
+    <!-- use of JSON is to read data from a web server, and display the data in a web page. -->
+    <p id="demo"></p>
+    <p id="demo1"></p>
+
+    <script>
+      let text =
+        '{"employees":[' +
+        '{"firstName":"John","lastName":"Doe" },' +
+        '{"firstName":"Anna","lastName":"Smith" },' +
+        '{"firstName":"Peter","lastName":"Jones" }]}';
+      //<--parse--> use the JavaScript built-in function to convert the string into a JavaScript object:JSON.parse()
+      const obj = JSON.parse(text);
+      document.getElementById("demo").innerHTML =
+        obj.employees[1].firstName + " " + obj.employees[1].lastName;
+
+      const obj2 = { name: "John", age: 30, city: "New York" };
+      const myJSON = JSON.stringify(obj2);//<--stringfy--> to convert it into a string.
+      document.getElementById("demo1").innerHTML = myJSON;
+    </script>
+  </body>
+</html>
