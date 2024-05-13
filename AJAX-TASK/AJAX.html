@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // method ==>
+      //new XMLHttpRequest()
+      //abort()==>	Cancels the current request
+      // getAllResponseHeaders()==>	Returns header information
+      // getResponseHeader()==>Returns specific header information
+      //         open(method, url, async, user, psw):==>
+      // method: the request type GET or POST
+      // url: the file location
+      // async: true (asynchronous) or false (synchronous)
+      // user: optional user name
+      // psw: optional password
+      // send()==>	Sends the request to the server Used for GET requests
+      // send(string)==>    Sends the request to the server.Used for POST requests
+      // setRequestHeader()==>	Adds a label/value pair to the header to be sent
+   
+   
+        const getData = (apiLink) => {
+        return new Promise((resolve, reject) =>{
+
+        let req = new XMLHttpRequest();
+        req.open("GET", "https://restcountries.com/v3.1/all");
+        req.send(); //ready state [4]==>status [200]
+        console.log(req);
+        req.onreadystatechange = function () {
+          console.log(req.readyState);
+          console.log(req.status);
+          if (this.status === 200 && this.readyState === 4) {
+            resolve(JSON.parse(this.responseText));
+          } else {
+            reject(Error("no data found"));
+          }
+        };
+        req.open("GET", apiLink);
+        req.send();
+      })};
+      getData("https://restcountries.com/v3.1/all").then(
+        (result) => {
+            result.length =10;
+            return result;
+        }).then((result) => console.log(result[0].name)).catch(
+            (rej) =>console.log(rej)
+        )
+      
+
+
+
+        // fetch("https://restcountries.com/v3.1/all").then((result)=>{
+        //     console.log(result);
+        //     let myData =result.json();
+        //     console.log(myData);//pending "fulfilled"
+        //     return myData;
+        // }).then((myData)=>{
+        //     myData.length=10;
+        //     return myData;
+        // }).then((myData)=>{
+        //     console.log(myData[0].name.common)
+        // })
+
+
+
+
+      //   // console.log(this.responseText);
+      //   let jsData = JSON.parse(this.responseText)
+      //         // console.log(jsData);
+      //         for (let i=0; i<jsData.length; i++){
+      //             let div = document.createElement("div");
+      //             let  repoName =document.createTextNode(jsData[i].name.common);
+      //             div.appendChild(repoName);
+      //             document.body.appendChild(div);}
+    </script>
+  </body>
+</html>

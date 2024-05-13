@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        //promise ==> avoid callbach hell
+        // const myPromise= new Promise((resolveFunction,rejectFunction)=>{
+        //     let connect= true;
+        //     if(connect){
+        //         resolveFunction("connection Established");//promise is fulfilled
+        //     }else{
+        //         rejectFunction(Error("connection Failed"));//promise is rejected
+        //     }
+        // });
+        // console.log(myPromise);
+        // let resolver= (resolveFunction)=>console.log(`good ${resolveFunction}`);
+        //  let rejecter= (rejectFunction)=>console.log(`bad ${rejectFunction}`);
+        
+        // myPromise.then(resolver,rejecter);
+        //  myPromise.then(
+        //     (resolveFunction)=>console.log(`good ${resolveFunction}`),if promise fulfilled
+        //     (rejectFunction)=>console.log(`bad ${rejectFunction}`),if promise rejected
+        // );
+
+
+
+        const myPromise= new Promise((resolveFunction,rejectFunction)=>{
+            let employees =[]
+            if (employees.length === 4){
+               resolveFunction(employees) ;
+            }else{
+                rejectFunction(Error("number of employees is not 4"));
+            }
+        })
+        myPromise.then(
+            (resolveValue)=>{
+                resolveValue.length=2;
+                return resolveValue; 
+            }
+        ).then(
+            (resolveValue)=>{
+                resolveValue.length=1;
+                // console.log(resolveValue);
+                return resolveValue; 
+            }
+        ).then(
+            (resolveValue)=>{
+               console.log(`the choosen employess is ${resolveValue}`);
+            }
+        ).catch((rejectedReason)=> console.log(rejectedReason))
+        .finally(console.log("the operation is done"));
+    </script>
+</body>
+</html>

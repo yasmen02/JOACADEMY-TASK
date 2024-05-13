@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo">Fetch a file to change this text.</p>
+    <script>
+      let file = "https://admin.joacademy.net/api/v1/settings";
+  let y=document.getElementById("demo");
+      fetch(file)
+        .then((x) => x.text())
+        .then((y) => (console.table(y)));
+    </script>
+  </body>
+</html>
