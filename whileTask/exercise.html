@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while Loop</title>
+</head>
+<body>
+    <script>
+ // 1-Create a function called subtract
+// that takes a single parameter n,
+// and return the subtraction of all
+// starting from n to 0
+        function subtract(num){
+           let  x=num;
+            
+            while(num>0){
+               
+                num--;
+                x-=num;
+
+            }
+                    return x;
+        }
+        console.log(subtract(5));
+ 
+//  2- Create a function called factorial
+// that takes a single parameter n,
+// and return the product of all integers up to n starting from 1
+function fact(num){
+           let  x=num;
+            
+            while(num>1){
+               
+                num--;
+                x*=num;
+
+            }
+                    return x;
+        }
+        console.log(fact(4));
+
+//  3- Create a function called repeatStr
+// that takes 2 parameters string and number,
+// and return the string number time with space
+// Important: the continue condition should be [somthing !== 0]
+// ** Think how we can return nothing ???
+// ** Important: You should dint have extra space at the end
+
+function repeatStr(string ,num){
+    let repeat="";
+while(num !== 0){
+  repeat+=string;
+  num--;
+if(num !==0){
+    repeat+=" "
+}
+}
+return repeat
+}
+console.log(repeatStr("to",2));
+
+//4- Create a function called sum2
+// that take two parameter
+// and will return the sumation from the first number to the second number
+
+function sum2(num1,num2){
+    let sum=0;
+    while(num1<=num2){
+        // console.log(num1);
+        sum+=num1;
+        num1++;
+        
+    }
+    return sum;
+}
+console.log(sum2(3,6));
+
+
+// 5-Create a function called repeatStr2
+// that takes 2 string parameters,
+// and return the first string number time
+// (of the lenght of the secend string) with space betweeen it
+// ** Important: the continue condition should be [somthing!== 0]
+// ** Important: You should't have extra space at the end
+function repeatStr2(string ,string2){
+    let repeat="";
+    let num=string2.length;
+while(num !== 0){
+  repeat+=string;
+  num--;
+if(num !==0){
+    repeat+=" "
+}
+}
+return repeat;
+}
+console.log(repeatStr2("to","cccu"));
+
+// 6-Create a function called multiOf
+// that takes 3 parameters,
+// and return the first number mutiple by
+// (the second one ^ the third number)
+function multiOf(num1,num2,num3){
+    let num4=num2;
+    let i=0;
+    while(i<num3){
+        num4*=num2;
+        i++;
+        // console.log(num4);
+    }
+    return num4 * num1;
+}
+console.log(multiOf(4,10,3));
+
+//7- Create a function called muti2
+// that take two parameter
+// and will return the multiplication
+// from the first number to the second number
+function multi2(num1,num2){
+    let result=1;
+    while(num1<=num2){
+        result*=num1;
+        num1++;
+  
+    }
+    return result;
+}
+console.log(multi2(4,5));
+
+// 8-Create a function called numberBetweenUs
+// that take 2 parameters
+// and return the number between them
+// ** Important: You should't have extra space at the end and comma
+// ** Important: the stop condition should [num1!==num2-1]
+// ** hint: maybe you will have 2 if statment
+function numberBetweenUs(num1,num2){
+    let result="";
+    while(num1!==num2-1){
+        num1++;
+       result+=num1;
+       if(num1<=num2){
+        result+=" , ";
+}
+       
+    }
+    return result;
+
+}
+console.log(numberBetweenUs(0,4));
+
+
+//9- Write a function called countDown
+// that takes one parameter
+// and return a string represent the count down from the number
+// that insert to 0
+// instead of 0 you shoulf have "done"
+// between each number a comma and space
+// ** you need to use recursion
+// ** Important: You should't have extra space at the end and comma
+// function countDown(num){
+//     let result="";
+//     while(num>=0){
+//        result+=num;
+//        num--;
+//        if(num>0){
+//         // result+="done ";
+//         result+=" ,";
+//     }else {
+//         result+="done ";
+//         // result+=" ,";
+//     }
+//     }
+//     return result;
+
+// }
+// console.log(countDown(5));
+
+function countDown(num) {
+    if (num === 0) {
+        return "done";
+    } else {
+        return num + ", " + countDown(num - 1); }
+}
+
+console.log(countDown(5)); 
+
+
+// 10-Write a function called multiplication2
+// that takes two parameters
+// and return the multiplication of them
+function multiplication2(num1,num2){
+    return num1*num2;
+}
+console.log(multiplication2(2,9));
+
+//11- Write a function called mod2
+// that takes two parameters
+// and return the module of them
+function mod2(a, b) {
+    while (a >= b) {
+        a -= b;
+    }
+    return a;
+}
+console.log(mod2(20, 3)); 
+
+//12- Write a function called repeatChar
+// that takes two parameters
+// and return the times that this char
+// without case sensetive
+// repeat inside this string
+function repeatChar(string, char) {
+    let i = 0;
+    let repeat = 0;
+    while (i < string.length) {
+        if (string[i].toLowerCase() === char.toLowerCase()) {
+            repeat++;
+        }
+        i++;
+    }
+    return repeat;
+}
+
+let string = "joacademy task function array loop ";
+console.log(repeatChar(string, "r")); 
+
+    </script>
+</body>
+</html>
