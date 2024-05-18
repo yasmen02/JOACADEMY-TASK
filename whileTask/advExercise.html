@@ -7,16 +7,121 @@
 </head>
 <body>
     <script>
+//     1-    Create a function called fibon
+// that takes 1 parameter a number,
+// and return the fibonacci for this number
+
+function fibon(n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return fibon(n - 1) + fibon(n - 2);
+    }
+}
+ؤonsole.log(fibon(7));
+// Test cases
+console.log(fibon(7)); // Output: 21
+console.log(fibon(2)); // Output: 2
+console.log(fibon(1)); // Output: 1
+console.log(fibon(0)); // Output: 1
+
+//   2-  Write a function called mirror
+// that takes one parameter a string
+// and return the reversed string
         function mirror(string){
+            let reversed ="";
             let num = string.length;
-            while(num>0){
-                // return string[num];
+            while(num > 0){
                 num--;
+                reversed += string[num];
+
             }
-            return string[num];
+            return reversed;
 
         }
-        console.log(mirror("caroo"));
+        console.log(mirror("car"));
+
+        3
+//  3-Write a function called mirrorCaseAlso
+// that takes one parameter a string
+// and return the reversed string order
+// and the lower case to upper case
+// and the upper case to lower case
+function mirrorCaseAlso(str) {
+    let mirrorCase = "";
+    let i = str.length - 1;
+    while (i >= 0) {
+        const char = str[i];
+        if (char === char.toUpperCase()) {
+            mirrorCase += char.toLowerCase();
+        } else {
+            mirrorCase += char.toUpperCase();
+        }
+        i--;
+    }
+    return mirrorCase;
+}
+
+console.log(mirrorCaseAlso(" Html , Css , JavaScript"));      
+
+
+// 4-Write a function called repeatChar2
+// that takes two parameters
+// and return the times that this char
+// wit case sensetive
+// repeat inside this string
+
+function repeatChar2(str, char) {
+    let count = 0;
+    let i = 0;
+    while (i < str.length) {
+        if (str[i] === char) {
+            count++;
+        }
+        i++;
+    }
+    return count;
+}
+
+
+console.log(repeatChar2("schOool", "o"));  
+console.log(repeatChar2("school", "a"));   
+console.log(repeatChar2("School", "s"));   
+
+
+// Create a function called HiSayHelloTo
+// that takes 1 parameter a number that represent
+// the nubmer of people come to an event,
+// and say hi to each person sepretadly
+// + let him/her say hello to each one that comes before him/her
+function HiSayHelloTo(n) {
+    let i = 1;
+    while (i <= n) {
+        let message = `hi ${i}`;
+        if (i > 1) {
+            message += ` Now Please Say Hello To ${getPreviousGreetings(i)}`;
+        }
+        console.log(message);
+        i++;
+    }
+}
+
+function getPreviousGreetings(current) {
+    let previousGreetings = "";
+    for (let j = 1; j < current; j++) {
+        if (j > 1) {
+            previousGreetings += ", ";
+        }
+        previousGreetings += j;
+    }
+    return previousGreetings;
+}
+
+
+HiSayHelloTo(3);
+HiSayHelloTo(7);
+
+
     </script>
 </body>
 </html>
