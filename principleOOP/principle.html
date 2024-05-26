@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //constuctor function
+        // function User(id, username , salary){
+        //     this.i= id;
+        //     this.u = username;
+        //     this.s=salary +1000;
+        // }
+        //ES6 2015
+        class User{ //class :blueprint of object
+            constructor(id,username,salary){
+                this.i= id;
+            this.u = username;
+            this.s=salary +1000;
+
+            }
+        }
+        let userOne = new User(100,"yasmen",1000);//object:instance of class
+        let userTwo = new User(101,"ali",2000);
+        let userThree = new User(102,"lama",3000);
+
+        console.log( userOne instanceof User);
+        console.log(userOne.constructor === User);
+//object literal
+//  const userOne ={
+//     id:100;
+//     username:"yasmen";
+//     salary:1000;
+//  }
+console.log(user.id);//dot notation
+
+
+
+//1-example of encapsulation
+function Person(name, age) {
+    // Private variables
+    let _name = name;
+    let _age = age;
+
+    // Public methods to access and modify private variables
+    this.getName = function() {
+        return _name;
+    };
+
+    this.getAge = function() {
+        return _age;
+    };
+
+    this.setAge = function(newAge) {
+        if (newAge > 0) {
+            _age = newAge;
+        } else {
+            console.log("Age must be a positive number.");
+        }
+    };
+}
+
+// Creating an instance of Person
+let person1 = new Person("Alice", 30);
+
+// Accessing private variables using public methods
+console.log(person1.getName()); // Output: Alice
+console.log(person1.getAge()); // Output: 30
+
+// Modifying private variable using a public method
+person1.setAge(35);
+console.log(person1.getAge()); // Output: 35
+
+// Trying to directly access private variables (which will result in undefined)
+console.log(person1._name); // Output: undefined
+console.log(person1._age); // Output: undefined
+
+
+
+//2-inheritance js example
+// Parent class
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    // Method in the parent class
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+
+// Child class inheriting from the parent class
+class Dog extends Animal {
+    constructor(name, breed) {
+        // Call the constructor of the parent class
+        super(name);
+        this.breed = breed;
+    }
+
+    // Method in the child class
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+
+    // New method in the child class
+    displayBreed() {
+        console.log(`${this.name} is a ${this.breed}.`);
+    }
+}
+
+// Creating an instance of the child class
+let dog1 = new Dog("Buddy", "Labrador");
+
+// Calling methods from the parent and child class
+dog1.speak(); // Output: Buddy barks.
+dog1.displayBreed(); // Output: Buddy is a Labrador.
+
+
+//3-example js abstraction
+
+// Shape class (abstract class)
+class Shape {
+    constructor() {
+        if (this.constructor === Shape) {
+            throw new Error("Cannot instantiate abstract class");
+        }
+    }
+
+    // Abstract method
+    getArea() {
+        throw new Error("Abstract method getArea() must be implemented");
+    }
+}
+
+// Concrete class Circle extending Shape
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    // Implementing the abstract method
+    getArea() {
+        return Math.PI * Math.pow(this.radius, 2);
+    }
+}
+
+// Concrete class Rectangle extending Shape
+class Rectangle extends Shape {
+    constructor(width, height) {
+        super();
+        this.width = width;
+        this.height = height;
+    }
+
+    // Implementing the abstract method
+    getArea() {
+        return this.width * this.height;
+    }
+}
+
+// Creating instances of concrete classes
+let circle = new Circle(5);
+let rectangle = new Rectangle(4, 6);
+
+// Using the abstract interface
+console.log("Circle area:", circle.getArea()); // Output: Circle area: 78.53981633974483
+console.log("Rectangle area:", rectangle.getArea()); // Output: Rectangle area: 24
+
+
+//4-example js polymorphism
+// Shape class (base class)
+class Shape {
+    constructor() {}
+
+    // Method to calculate area (virtual method)
+    calculateArea() {
+        throw new Error("Method 'calculateArea()' must be implemented");
+    }
+}
+
+// Circle class extending Shape
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    // Implementing the calculateArea method for Circle
+    calculateArea() {
+        return Math.PI * Math.pow(this.radius, 2);
+    }
+}
+
+// Rectangle class extending Shape
+class Rectangle extends Shape {
+    constructor(width, height) {
+        super();
+        this.width = width;
+        this.height = height;
+    }
+
+    // Implementing the calculateArea method for Rectangle
+    calculateArea() {
+        return this.width * this.height;
+    }
+}
+
+// Function to calculate total area of shapes
+function calculateTotalArea(shapes) {
+    let totalArea = 0;
+    shapes.forEach(shape => {
+        // Polymorphic method invocation
+        totalArea += shape.calculateArea();
+    });
+    return totalArea;
+}
+
+// Creating instances of Circle and Rectangle
+let circle = new Circle(5);
+let rectangle = new Rectangle(4, 6);
+
+// Using polymorphism to calculate total area
+let totalArea = calculateTotalArea([circle, rectangle]);
+
+console.log("Total area:", totalArea); // Output: Total area: 104.53981633974483
+
+    </script>
+</body>
+</html>
